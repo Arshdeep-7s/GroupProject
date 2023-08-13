@@ -2,17 +2,21 @@ package ca.sheridancollege.project;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+/**
+ * 
+ * @author Arshdeep Singh
+ */
 
-public class GoFishGame extends Game {
+        public class GoFishGame extends Game {
 
-    private List<Card> deck;
-    private List<Card> player1Hand;
-    private List<Card> player2Hand;
-    private Random random;
-    private Player currentPlayer;
+            private List<Card> deck;
+            private List<Card> player1Hand;
+            private List<Card> player2Hand;
+            private Random random;
+            private Player currentPlayer;
 
-    public GoFishGame() {
-        super("Go Fish");
+            public GoFishGame() {
+                super("Go Fish");
         deck = new ArrayList<>();
         player1Hand = new ArrayList<>();
         player2Hand = new ArrayList<>();
@@ -131,7 +135,17 @@ public class GoFishGame extends Game {
         while (!deck.isEmpty() || !player1Hand.isEmpty() || !player2Hand.isEmpty()) {
             System.out.println("\n" + currentPlayer.getName() + "'s turn.");
             displayHand(getPlayerHand(currentPlayer));
-            Rank rank = currentPlayer.selectRank();
+            String input = currentPlayer.selectRank();
+            try {
+                if(Integer.parseInt(input)==-1){
+                    declareWinner();
+                    System.exit(0);
+                }
+            }catch (Exception e){
+
+            }
+            Rank rank = Rank.valueOf(input);
+
             Player otherPlayer = getPlayers().get(1 - getPlayers().indexOf(currentPlayer));
             askOtherPlayer(otherPlayer, rank);
         }

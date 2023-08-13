@@ -1,5 +1,8 @@
 package ca.sheridancollege.project;
-
+/**
+ * 
+ * @author Arshdeep Singh
+ */
 
 public class Main {
     public static void main(String[] args) {

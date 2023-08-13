@@ -10,6 +10,7 @@ package ca.sheridancollege.project;
  *
  * @author dancye
  * @author Paul Bonenfant Jan 2020
+ * @author Arshdeep Singh
  */
 public abstract class Player {
 
@@ -46,5 +47,5 @@ public abstract class Player {
      */
     public abstract void play();
 
-    public abstract Rank selectRank();
+    public abstract String selectRank();
 }

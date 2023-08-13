@@ -1,10 +1,13 @@
 package ca.sheridancollege.project;
-
+/**
+ * @author Arshdeep Singh
+ */
 import java.util.Scanner;
 
 public class HumanPlayer extends Player {
 
     private Scanner scanner;
+    public boolean endgame = false;
 
     public HumanPlayer(String name) {
         super(name);
@@ -17,9 +20,13 @@ public class HumanPlayer extends Player {
         // Implement the specific gameplay actions for the human player
     }
 
-    public Rank selectRank() {
-        System.out.print("Enter the rank to ask for: ");
+    public String selectRank() {
+        System.out.print("Enter the rank to ask for(or enter -1 to exit): ");
         String input = scanner.nextLine().toUpperCase();
-        return Rank.valueOf(input);
+        //if(Integer.parseInt(input) == -1){
+          //  endgame = true;
+
+        //}
+        return input;
     }
 }
